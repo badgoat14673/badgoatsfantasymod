@@ -1,0 +1,11 @@
+{
+  "type": "content",
+  "modid": "badgoatsfantasycreatures",
+  "name": "BadGoat's Fantasy Creatures",
+  "description": "Adds Fantasy Creatures",
+  "authors": [ "badgoat" ],
+  "version": "0.0.1",
+  "dependencies": {
+    "game": "1.21.0"
+  }
+}
