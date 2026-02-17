@@ -1,32 +1,18 @@
 {
-  "code": "goblingreen",
+  "code": "goblinarcher",
   "class": "EntityAgent",
-<<<<<<< HEAD
 
-=======
-  "weight": 140,
-  "canClimb": true,
->>>>>>> 1973fd1666a164ed587920f19dd443563995df18
   "hitboxSize": {
-    "x": 1,
+    "x": 1.1,
     "y": 0.5
   },
-<<<<<<< HEAD
-  "deadHitboxSize": {x: 0.6, "y": 1},
   "eyeHeight": 0.6,
-
-
-
-=======
-  "deadHitboxSize": {x: 0.6, "y": 1}
-  "eyeHeight": 0.6,
->>>>>>> 1973fd1666a164ed587920f19dd443563995df18
   "client": {
 
     "renderer": "Shape",
-    "shape": {"base": "badgoatsfantasycreatures:entity/goblingreen"},
+    "shape": {"base": "badgoatsfantasycreatures:entity/goblinarcher"},
     "textures": {
-      "skin": { "base": "badgoatsfantasycreatures:entity/goblingreen" }
+      "skin": { "base": "badgoatsfantasycreatures:entity/goblinarcher" }
 
     },
     "behaviors": [
@@ -53,27 +39,25 @@
       }
     ],
     "animations": [
-        
-
+    
     ]
 
   },
   "server": {
     "attributes": {},
     "behaviors": [
-
-
       {
         "code": "harvestable",
         "durations": 2,
         "fixedweight": true,
         "drops": [
+
           {
             "type": "item",
             "code": "gear-rusty",
             "dropModbyStat": "rustyGearDropRate",
             "quantity": {
-              "avg": 0.1,
+              "avg": 0.2,
               "var": 0.2
             }
           },
@@ -81,16 +65,16 @@
             "type": "item",
             "code": "flaxfibers",
             "quantity": {
-              "avg": 0.5,
-              "var": 0.2
+              "avg": 1,
+              "var": 0.5
             }
           },
           {
             "type": "item",
             "code": "hide-raw-small",
             "quantity": {
-              "avg": 0.5,
-              "var": 0.1
+              "avg": 1,
+              "var": 0.5
             }
           }
         ]
@@ -100,17 +84,17 @@
       },
       {
         "code": "controlledphysics",
-        "stepHeight": 1.25
+        "stepHeight": 1.1251
       },
 
       {
         "code": "health",
         "currenthealth": {
-          "goblingreen": 10
+          "goblinarcher": 16
 
         },
         "maxhealth": {
-          "goblingreen": 10
+          "goblinarcher": 16
         }
       },
       {
@@ -130,37 +114,21 @@
             "entityCodes": [
               "player"
             ],
-            "priority": 2,
+            "priority": 1.2,
             "damageByType": {
-              "goblingreen": 4
+              "goblinarcher": 9
             },
             "damagetierByType": {
-              "goblingreen": 1
+              "goblinarcher": 1
             },
             "damageTypeByType": {
-              "goblingreen": "SlashingAttack"
+              "goblinarcher": "SlashingAttack"
             },
             "mincooldown": 1500,
             "maxcooldown": 2000,
             "damagePlayerAtMs": 400,
             "attackDurationMs": 1000
 
-          },
-          {
-            "code": "throwatentity",
-            "entityCodes": [
-              "player"
-            ],
-            "priority": 2.5,
-            "priorityForCancel": 9,
-            "mincooldown": 1000,
-            "maxcooldown": 10000,
-            "durationMs": 1200,
-            "releaseAtMs": 700,
-            "yawInaccuracy": 0.33,
-            "seekingRange": 20,
-            "projectileDamage": 1,
-            "projectileDamageTier": 0
           },
           {
             "code": "seekentity",
@@ -178,8 +146,4 @@
       }
     ]
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1973fd1666a164ed587920f19dd443563995df18
