@@ -1,16 +1,26 @@
 {
   "code": "goblingreen",
   "class": "EntityAgent",
+<<<<<<< HEAD
 
+=======
+  "weight": 140,
+  "canClimb": true,
+>>>>>>> 1973fd1666a164ed587920f19dd443563995df18
   "hitboxSize": {
     "x": 1,
     "y": 0.5
   },
+<<<<<<< HEAD
   "deadHitboxSize": {x: 0.6, "y": 1},
   "eyeHeight": 0.6,
 
 
 
+=======
+  "deadHitboxSize": {x: 0.6, "y": 1}
+  "eyeHeight": 0.6,
+>>>>>>> 1973fd1666a164ed587920f19dd443563995df18
   "client": {
 
     "renderer": "Shape",
@@ -168,4 +178,8 @@
       }
     ]
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1973fd1666a164ed587920f19dd443563995df18
