@@ -1,6 +1,7 @@
 {
-  "code": "goblinarcher",
+  "code": "goblingreen",
   "class": "EntityAgent",
+  
 
   "hitboxSize": {
     "x": 1.1,
@@ -10,9 +11,9 @@
   "client": {
 
     "renderer": "Shape",
-    "shape": {"base": "badgoatsfantasycreatures:entity/goblinarcher"},
+    "shape": {"base": "badgoatsfantasycreatures:entity/goblingreen"},
     "textures": {
-      "skin": { "base": "badgoatsfantasycreatures:entity/goblinarcher" }
+      "skin": { "base": "badgoatsfantasycreatures:entity/goblingreen" }
 
     },
     "behaviors": [
@@ -39,25 +40,27 @@
       }
     ],
     "animations": [
-    
+        
+
     ]
 
   },
   "server": {
     "attributes": {},
     "behaviors": [
+
+
       {
         "code": "harvestable",
         "durations": 2,
         "fixedweight": true,
         "drops": [
-
           {
             "type": "item",
             "code": "gear-rusty",
             "dropModbyStat": "rustyGearDropRate",
             "quantity": {
-              "avg": 0.2,
+              "avg": 0.1,
               "var": 0.2
             }
           },
@@ -65,16 +68,16 @@
             "type": "item",
             "code": "flaxfibers",
             "quantity": {
-              "avg": 1,
-              "var": 0.5
+              "avg": 0.5,
+              "var": 0.2
             }
           },
           {
             "type": "item",
             "code": "hide-raw-small",
             "quantity": {
-              "avg": 1,
-              "var": 0.5
+              "avg": 0.5,
+              "var": 0.1
             }
           }
         ]
@@ -84,17 +87,17 @@
       },
       {
         "code": "controlledphysics",
-        "stepHeight": 1.1251
+        "stepHeight": 1.25
       },
 
       {
         "code": "health",
         "currenthealth": {
-          "goblinarcher": 16
+          "goblingreen": 10
 
         },
         "maxhealth": {
-          "goblinarcher": 16
+          "goblingreen": 10
         }
       },
       {
@@ -114,21 +117,37 @@
             "entityCodes": [
               "player"
             ],
-            "priority": 1.2,
+            "priority": 2,
             "damageByType": {
-              "goblinarcher": 9
+              "goblingreen": 4
             },
             "damagetierByType": {
-              "goblinarcher": 1
+              "goblingreen": 1
             },
             "damageTypeByType": {
-              "goblinarcher": "SlashingAttack"
+              "goblingreen": "SlashingAttack"
             },
             "mincooldown": 1500,
             "maxcooldown": 2000,
             "damagePlayerAtMs": 400,
             "attackDurationMs": 1000
 
+          },
+          {
+            "code": "throwatentity",
+            "entityCodes": [
+              "player"
+            ],
+            "priority": 2.5,
+            "priorityForCancel": 9,
+            "mincooldown": 1000,
+            "maxcooldown": 10000,
+            "durationMs": 1200,
+            "releaseAtMs": 700,
+            "yawInaccuracy": 0.33,
+            "seekingRange": 20,
+            "projectileDamage": 1,
+            "projectileDamageTier": 0
           },
           {
             "code": "seekentity",
