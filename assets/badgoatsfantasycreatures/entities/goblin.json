@@ -1,0 +1,324 @@
+{
+  "code": "goblin",
+  "class": "EntityAgent",
+  "variantgroups": [
+    {
+      "code": "type",
+      "states": [
+        "green",
+        "red"
+      ]
+    }
+  ],
+  "hitboxSize": {
+    "x": 0.6,
+    "y": 1.25
+  },
+  "deadHitboxSize": {
+    "x": 0.6,
+    "y": 1
+  },
+  "canClimb": true,
+  "eyeHeight": 1,
+  "drops": [],
+  "client": {
+    "renderer": "Shape",
+    "shapeByType": {
+      "goblin-red": {
+        "base": "entity/goblinred"
+      },
+      "goblin-green": {
+        "base": "entity/goblingreen"
+      }
+    },
+    "texturesByType": {
+      "goblin-red": {
+        "skin": {
+          "base": "entity/goblinred"
+        }
+      },
+      "goblin-green": {
+        "skin": {
+          "base": "entity/goblingreen"
+        }
+      }
+    },
+    "behaviors": [
+      {
+        "code": "repulseagents"
+      },
+      {
+        "code": "controlledphysics",
+        "stepHeight": 1
+      },
+      {
+        "code": "floatupwhenstuck",
+        "onlyWhenDead": true
+      },
+      { "code": "interpolateposition" },
+      {
+        "code": "harvestable",
+        "duration": 2
+      }
+    ],
+    "animations": [
+
+    ]
+
+
+  },
+  "server": {
+    "behaviors": [
+      { "code": "repulseagents" },
+      {
+        "code": "controlledphysics",
+        "stepHeight": 1
+      },
+      {
+        "code": "health",
+        "currenthealthByType": {
+          "goblin-red": 15,
+          "goblin-green": 12
+        },
+        "maxhealthByType": {
+          "goblin-red": 15,
+          "goblin-green": 12
+        }
+      },
+      {
+        "code": "deaddecay",
+        "hoursToDecay": 0.5
+      },
+      {
+        "code": "floatupwhenstuck",
+        "onlyWhenDead": true
+      },
+      {
+        "code": "despawn",
+        "minPlayerDistance": 16,
+        "minSeconds": 300
+      },
+      {
+        "code": "emotionstates",
+        "states": [
+          {
+            "code": "fleeondamage",
+            "duration": 10,
+            "chanceByType": {
+              "goblin-red": 0.7,
+              "goblin-green": 0.15
+            },
+            "slot": 0,
+            "priority": 1,
+            "accumType": "max"
+          }
+        ]
+      },
+      {
+        "code": "taskai",
+        "aitasks": [
+          {
+            "entityCodes": [
+              "player"
+            ],
+            "priority": 3,
+            "movespeed": 0.018,
+            "seekingRange": 20,
+            "fleeingDistance": 64,
+            "fleeDurationsMs": 9999999,
+            "ingnoreDeepDayLight": true,
+            "cancelOnHurt": true,
+            "executionChance": 0.03
+          },
+          {
+            "code": "fleeentity",
+            "entityCodes": [
+              "player"
+            ],
+            "priority": 2.5,
+            "movespeed": 0.018,
+            "seekingRange": 12,
+            "cancelOnHurt": true,
+            "whenInEmotionState": "fleeondamage"
+          },
+          {
+            "code": "meleeattack",
+            "entityCodes": [
+              "player",
+              "villager-*"
+            ],
+            "priority": 2,
+            "damageByType": {
+              "goblin-red": 8,
+              "goblin-green": 3.5
+            },
+            "damageTierByType": {
+              "goblin-red": 1,
+              "goblin-green": 0
+            },
+            "damageTypeByType": {
+              "goblin-red": "SlashingAttack",
+              "goblin_green": "SlashingAttack"
+            },
+            "mincooldown": 500,
+            "maxcooldown": 1750,
+            "damagePlayerAtMs": 400,
+            "attackDurationMs": 1000
+          },
+          {
+            "code": "seekentity",
+            "entityCodes": [
+              "player",
+              "villager-*"
+            ],
+            "priority": 1.5,
+            "mincooldown": 400,
+            "maxcooldown": 800,
+            "movespeed": 0.018,
+            "seekingRange": 20
+          },
+          {
+            "code": "idle",
+            "priority": 1.2,
+            "priorityForCancle": 1.35,
+            "minduration": 4000,
+            "maxduration": 6000,
+            "chance": 0.001,
+            "initialMinCoolDown": 2000,
+            "initialMaxCoolDown": 150000,
+            "mincooldown": 300000,
+            "maxcooldown": 10000000
+          },
+          {
+            "code": "idle",
+            "priority": 1.2,
+            "priorityForCancel": 2.1,
+            "minduration": 4000,
+            "maxduration": 6000,
+            "chance": 0.001,
+            "initialMinCoolDown": 2000,
+            "initialMaxCoolDown": 150000,
+            "mincooldown": 300000,
+            "maxcooldown": 10000000
+          },
+          {
+            "code": "wander",
+            "priority": 1.0,
+            "movespeed": 0.01,
+            "preferredLightLevel": 15
+          },
+          {
+            "code": "wander",
+            "priority": 0.99,
+            "priorityForCancel": 1.1,
+            "movespeed": 0.008,
+            "preferredLightLevel": 15
+          },
+          {
+            "code": "getoutofwater",
+            "priority": 1.4,
+            "movespeed": 0.015
+          },
+          {
+            "code": "lookaround",
+            "priority": 0.5
+          }
+        ]
+      },
+      {
+        "code": "harvestable",
+        "duration": 2,
+        "fixedweight": true,
+        "dropsByType": {
+          "goblin-green": [
+            {
+              "type": "item",
+              "code": "gear-temporal",
+              "quantity": {
+                "avg": 0.02666,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
+              "code": "flaxfibers",
+              "quantity": {
+                "avg": 0.2,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
+              "code": "gear-rusty",
+              "quantity": {
+                "avg": 0.03,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
+              "code": "hide-raw-small",
+              "quantity": {
+                "avg": 0.2,
+                "var": 0
+              }
+            }
+          ],
+          "goblin-red": [
+            {
+              "type": "item",
+              "code": "gear-temporal",
+              "quantity": {
+                "avg": 0.033325,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
+              "code": "flaxfibers",
+              "quantity": {
+                "avg": 0.4,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
+              "code": "gear-rusty",
+              "quantity": {
+                "avg": 0.03,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
+              "code": "gear-rusty",
+              "quantity": {
+                "avg": 0.033325,
+                "var": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "code": "ripharvestable"
+      },
+      {
+        "code": "entitystatetags"
+      }
+    ],
+    "spawnconditions": {
+      "runtime": {
+        "group": "hostile",
+        "maxQuantityByType": {
+          "goblin-green": 6,
+          "goblin-red": 3
+        },
+        "maxLightLevel": 7,
+        "chance": 0.1,
+        "lightLevelType": "OnlyBlockLight",
+        "insideBlockCodes": [ "air", "tallgrass-*", "loosestones-*" ]
+      }
+    }
+  }
+}
