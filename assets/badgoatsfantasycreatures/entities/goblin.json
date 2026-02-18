@@ -29,7 +29,10 @@
       },
       "goblin-green": {
         "base": "entity/goblingreen"
-      }
+      },
+        "goblin-black": {
+          "base": "entity/goblinblack"
+        }
     },
     "texturesByType": {
       "goblin-red": {
@@ -40,6 +43,11 @@
       "goblin-green": {
         "skin": {
           "base": "entity/goblingreen"
+        }
+      },
+      "goblin-black": {
+        "skin": {
+          "base": "entity/goblinblack"
         }
       }
     },
@@ -105,7 +113,8 @@
             "code": "fleeondamage",
             "duration": 10,
             "chanceByType": {
-              "goblin-red": 0.7,
+              "goblin-black": 0.05,
+              "goblin-red": 0.07,
               "goblin-green": 0.15
             },
             "slot": 0,
@@ -149,14 +158,17 @@
             ],
             "priority": 2,
             "damageByType": {
+              "goblin-black": 10,
               "goblin-red": 8,
               "goblin-green": 3.5
             },
             "damageTierByType": {
+              "goblin-black": 2,
               "goblin-red": 1,
               "goblin-green": 0
             },
             "damageTypeByType": {
+              "goblin-black": "SlashingAttack",
               "goblin-red": "SlashingAttack",
               "goblin_green": "SlashingAttack"
             },
@@ -291,9 +303,43 @@
             },
             {
               "type": "item",
+              "code": "hide-raw-small",
+              "quantity": {
+                "avg": 0.5,
+                "var": 0
+              }
+            }
+          ],
+          "goblin-black": [
+            {
+              "type": "item",
+              "code": "gear-temporal",
+              "quantity": {
+                "avg": 0.053325,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
+              "code": "flaxfibers",
+              "quantity": {
+                "avg": 0.75,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
               "code": "gear-rusty",
               "quantity": {
-                "avg": 0.033325,
+                "avg": 0.05,
+                "var": 0
+              }
+            },
+            {
+              "type": "item",
+              "code": "hide-raw-small",
+              "quantity": {
+                "avg": 0.75,
                 "var": 0
               }
             }
