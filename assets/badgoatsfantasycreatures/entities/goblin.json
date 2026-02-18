@@ -355,6 +355,21 @@
       }
     ],
     "spawnconditions": {
+      "climate": {
+
+      },
+      "worldgen": {
+        "TriesPerChunk": {
+          "avg": 0.5,
+          "var": 0
+        },
+        "tryOnlySurface": false,
+        "groupSize": {
+          "dist": "uniform",
+          "avg": 3,
+          "var": 2
+        }
+      },
       "runtime": {
         "group": "hostile",
         "maxQuantityByType": {
@@ -362,10 +377,12 @@
           "goblin-green": 6,
           "goblin-red": 3
         },
-        "maxLightLevel": 7,
+        "maxLightLevel": 6,
         "chance": 0.1,
         "lightLevelType": "OnlyBlockLight",
-        "insideBlockCodes": [ "air", "tallgrass-*", "loosestones-*" ]
+        "insideBlockCodes": [ "air", "tallgrass-*", "loosestones-*" ],
+        "minY": 0.5,
+        "maxY": 2
       }
     }
   }
