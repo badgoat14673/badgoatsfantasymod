@@ -6,7 +6,8 @@
       "code": "type",
       "states": [
         "green",
-        "red"
+        "red",
+        "black"
       ]
     }
   ],
@@ -30,9 +31,9 @@
       "goblin-green": {
         "base": "entity/goblingreen"
       },
-        "goblin-black": {
-          "base": "entity/goblinblack"
-        }
+      "goblin-black": {
+        "base": "entity/goblinblack"
+      }
     },
     "texturesByType": {
       "goblin-red": {
@@ -357,6 +358,7 @@
       "runtime": {
         "group": "hostile",
         "maxQuantityByType": {
+          "goblin-black": 3,
           "goblin-green": 6,
           "goblin-red": 3
         },
