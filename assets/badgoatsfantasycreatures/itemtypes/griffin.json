@@ -1,0 +1,64 @@
+{
+  "code": "griffin",
+  "class": "ItemCreature",
+  "maxstacksize": 64,
+  "variantgroups": [
+    {
+      "code": "type",
+      "states": [
+        "griffin"
+      ]
+    }
+  ],
+  "shapeByType": {
+    "griffin": {
+      "base": "entity/griffin"
+    }
+  },
+  "texturesByType": {
+    "griffin": { "skin": { "base": "entity/griffin" } }
+  },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ],
+    "creatures": [ "*" ],
+    "BadgoatsFantasyCreatures": [ "*" ]
+  },
+  "materialDensity": 600,
+  "guiTransformByType": {
+    "griffin": {
+      "rotate": true,
+      "translation": {
+        "x": 2,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "x": 4,
+        "y": -59,
+        "z": -180
+      },
+      "origin": {
+        "x": 0.54,
+        "y": 0.28,
+        "z": 0.5
+      },
+      "scale": 2.6
+    }
+  },
+  "tpHandTransformByType": {
+    "griffin": {
+      "translation": {
+        "x": -0.8,
+        "y": -0.4,
+        "z": -0.5
+      },
+      "rotation": {
+        "x": -180,
+        "y": 0,
+        "z": -156
+      },
+      "scale": 0.7
+    }
+  }
+}

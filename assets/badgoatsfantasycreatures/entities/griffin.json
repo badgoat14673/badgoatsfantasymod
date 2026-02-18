@@ -1,0 +1,227 @@
+{
+  "code": "griffin",
+  "class": "EntityAgent",
+  "variantgroups": [
+    {
+      "code": "gender", "states": ["male", "female"]
+    }
+  ],
+  "hitboxSize": {
+    "x": 2,
+    "y": 4
+  },
+  "deadHitboxSize": {
+    "x": 2,
+    "y": 4
+  },
+  "canClimb": true,
+  "eyeHeight": 3.75,
+  "drops": [],
+  "attributes": {
+    "creatureDiet": {
+      "foodCategories": [ "Vegetable", "Grain" ],
+      "weightedFoodTags": [
+        {
+          "weight": 0.5,
+          "code": "nibbleCrop"
+        },
+        {
+          "weight": 0.1,
+          "code": "grass"
+        },
+        {
+          "weight": 0.9,
+          "code": "fruitmash"
+        },
+        {
+          "weight": 1,
+          "code": "tastyvegetable"
+        },
+        {
+          "weight": 0.2,
+          "code": "soybean"
+        }
+      ]
+    },
+    "handbook": {
+      "groupcode": "creaturegroup-griffin"
+    }
+  }
+  "client": {
+    "renderer": "Shape",
+    "shape": { "base": "entity/griffin" },
+    "textures": { "base": "entity/griffin" },
+    "behaviors": [
+      {
+        "code": "repulseagents"
+      },
+      {
+        "code": "controlledphysics",
+        "onlyWhenDead": true
+      },
+      {
+        "code": "interpolateposition"
+      },
+      {
+        "code": "harvestable",
+        "duration": 2
+      }
+    ],
+    "animations": [
+
+    ]
+  },
+  "server": {
+    "behaviors": [
+      {
+        "code": "repulseagents"
+      },
+      {
+        "code": "controlledphysics",
+        "stepHeight": 3.1
+      },
+      {
+        "code": "health",
+        "currenthealth": 34,
+        "maxhealth": 34
+      },
+      {
+        "code": "deaddecay",
+        "hoursToDecay": 96,
+        "decayedBlock": "carcass-large"
+      },
+      {
+        "code": "floatupwhenstuck",
+        "onlyWhenDead": true
+      },
+      {
+        "code": "despawn",
+        "minPlayerDistance": 8,
+        "minSeconds": 300
+      },
+      {
+        "code": "harvestable",
+        "drops": [
+          {
+            "type": "item",
+            "code": "redmeat-raw",
+            "quantity": {
+              "avg": 8,
+              "var": 4
+            }
+          },
+          {
+            "type": "item",
+            "code": "hide-raw-large",
+            "quantity": {
+              "avg": 1,
+              "var": 1.5
+            }
+          },
+          {
+            "type": "item",
+            "code": "feather",
+            "quantity": {
+              "avg": 32,
+              "var": 10
+            }
+          }
+        ]
+      },
+      {
+        "code": "emotionstates",
+        "states": [
+          {
+            "code": "fleeondamage",
+            "whenHealthRelBelow": 2,
+            "duration": 60,
+            "chance": 1.0,
+            "slot": 0,
+            "priority": 5,
+            "accumType": "max"
+          },
+          {
+            "code": "fleeondamage",
+            "duration": 40,
+            "chance": 1.0,
+            "slot": 0,
+            "priority": 1,
+            "accumType": "max"
+          },
+          {
+            "code": "aggressiveondamage",
+            "duration": 30,
+            "chance": 0.5,
+            "slot": 0,
+            "priority": 2,
+            "accumType": "noaccum"
+          },
+          {
+            "code": "saturated",
+            "duration": 1200,
+            "chance": 1,
+            "slot": 0,
+            "priority": 1,
+            "accumType": "sum"
+          }
+        ]
+      },
+      {
+        "code": "taskai",
+        "aiCreatureType": "LandCreature",
+        "aittasks": [
+          {
+            "code": "fleeentity",
+            "instafleeOnDamageChance": 1,
+            "entityCodes": [ "player", "wolf-*", "hyena-*", "bear-*" ],
+            "priority": 1.51,
+            "movespeed": 0.04,
+            "seekingRange": 16
+          },
+          {
+            "code": "getoutofwater",
+            "priority": 1.4,
+            "movespeed": 0.03
+          },
+          {
+            "code": "idle",
+            "priority": 0.9,
+            "minduration": 6000,
+            "maxduration": 45000,
+            "mincooldown": 6000,
+            "maxcooldown": 120000,
+            "priorityForCancel": 1.28,
+            "StopOnNearbyEntityCodes": [ "player", "wolf-*", "hyena-*", "bear-*" ],
+            "stopRange": 10,
+            "stopOnHurt": true
+          },
+          {
+            "code": "idle",
+            "priority": 1.38,
+            "minduration": 200000,
+            "maxduration": 800000,
+            "mincooldown": 10000,
+            "maxcooldown": 30000,
+            "priorityForCancel": 1.38,
+            "whenNotInEmotionState": "aggressiveondamage",
+            "duringDayTimeFrames": [
+              {
+                "fromHour": 20,
+                "toHour": 4
+              }
+            ],
+            "stopOnNearbyEntityCodes": [ "player", "wolf-*", "hyena-*", "bear-*" ],
+            "stopRange": 8,
+            "stopOnHurt": true
+          },
+          {
+            "code": "ripharvestable"
+          },
+          {
+            "code": "entitystatetags"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -87,11 +87,13 @@
         "code": "health",
         "currenthealthByType": {
           "goblin-red": 15,
-          "goblin-green": 12
+          "goblin-green": 12,
+          "goblin-black": 18
         },
         "maxhealthByType": {
           "goblin-red": 15,
-          "goblin-green": 12
+          "goblin-green": 12,
+          "goblin-black": 18
         }
       },
       {
