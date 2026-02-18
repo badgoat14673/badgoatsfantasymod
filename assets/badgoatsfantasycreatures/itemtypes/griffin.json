@@ -15,8 +15,10 @@
       "base": "entity/griffin"
     }
   },
-  "texturesByType": {
-    "griffin": { "skin": { "base": "entity/griffin" } }
+  "textures": {
+    "skin": {
+      "base": "entity/griffin"
+    }
   },
   "creativeinventory": {
     "general": [ "*" ],
