@@ -1,0 +1,129 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+		"WoodFIller": [200,200]
+	},
+	"textures": {
+		"WoodFIller": "/Users/charl/Desktop/WoodFIller"
+	},
+	"elements": [
+		{
+			"name": "MoveAll",
+			"from": [ 7.5, 12.0, 7.5 ],
+			"to": [ 8.5, 13.0, 8.5 ],
+			"rotationOrigin": [ 8.0, 12.5, 8.0 ],
+			"faces": {
+				"north": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"east": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"south": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"west": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"up": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"down": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] }
+			},
+			"children": [
+				{
+					"name": "MainBody",
+					"from": [ -0.5, -3.0, -0.5 ],
+					"to": [ 1.5, 1.0, 1.5 ],
+					"rotationOrigin": [ 0.0, -3.0, 0.0 ],
+					"faces": {
+						"north": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 2.0, 4.0 ] },
+						"east": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 2.0, 4.0 ] },
+						"south": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 2.0, 4.0 ] },
+						"west": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 2.0, 4.0 ] },
+						"up": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+						"down": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 2.0, 2.0 ] }
+					}
+				},
+				{
+					"name": "MainBody2",
+					"from": [ -0.45, -3.5, -0.45 ],
+					"to": [ 1.45, -3.0, 1.45 ],
+					"rotationOrigin": [ 0.0, -4.0, 0.0 ],
+					"faces": {
+						"north": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"east": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"south": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"west": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"up": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 1.5 ] },
+						"down": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 1.5 ] }
+					}
+				},
+				{
+					"name": "MainBody3",
+					"from": [ -0.35, -4.0, -0.35 ],
+					"to": [ 1.35, -3.5, 1.35 ],
+					"rotationOrigin": [ 0.0, -4.0, 0.0 ],
+					"faces": {
+						"north": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"east": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"south": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"west": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"up": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 1.5 ] },
+						"down": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 1.5 ] }
+					}
+				},
+				{
+					"name": "MainBody4",
+					"from": [ -0.25, -4.5, -0.25 ],
+					"to": [ 1.25, -4.0, 1.25 ],
+					"rotationOrigin": [ 0.0, -8.0, 0.0 ],
+					"faces": {
+						"north": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"east": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"south": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"west": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"up": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 1.5 ] },
+						"down": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 1.5 ] }
+					}
+				},
+				{
+					"name": "MainBody5",
+					"from": [ -0.1, -5.0, -0.1 ],
+					"to": [ 1.1, -4.5, 1.1 ],
+					"rotationOrigin": [ 0.0, -8.0, 0.0 ],
+					"faces": {
+						"north": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+						"east": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+						"south": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+						"west": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+						"up": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+						"down": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] }
+					}
+				},
+				{
+					"name": "MainBody6",
+					"from": [ 0.0, -7.5, 0.0 ],
+					"to": [ 1.0, -5.0, 1.0 ],
+					"rotationOrigin": [ 0.0, -10.0, 0.0 ],
+					"faces": {
+						"north": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 2.5 ] },
+						"east": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 2.5 ] },
+						"south": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 2.5 ] },
+						"west": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 2.5 ] },
+						"up": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+						"down": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.0, 1.0 ] }
+					}
+				},
+				{
+					"name": "Tip",
+					"from": [ -0.25, 1.0, -0.25 ],
+					"to": [ 1.25, 1.25, 1.25 ],
+					"rotationOrigin": [ 0.0, 1.0, 0.0 ],
+					"faces": {
+						"north": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"east": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"south": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"west": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+						"up": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 1.5 ] },
+						"down": { "texture": "#WoodFIller", "uv": [ 0.0, 0.0, 1.5, 1.5 ] }
+					}
+				}
+			]
+		}
+	]}
