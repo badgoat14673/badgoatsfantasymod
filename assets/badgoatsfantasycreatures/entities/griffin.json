@@ -3,7 +3,14 @@
   "class": "EntityAgent",
   "variantgroups": [
     {
-      "code": "gender", "states": ["male", "female"]
+      "code": "type",
+      "states": [
+        "*-griffin-*"
+      ]
+    },
+    {
+      "code": "gender",
+      "states": [ "male", "female" ]
     }
   ],
   "hitboxSize": {
@@ -42,15 +49,14 @@
           "code": "soybean"
         }
       ]
-    },
-    "handbook": {
-      "groupcode": "creaturegroup-griffin"
     }
-  }
+  },
   "client": {
     "renderer": "Shape",
     "shape": { "base": "entity/griffin" },
-    "textures": { "base": "entity/griffin" },
+    "textures": {
+      "skin": {"base": "entity/griffin"}
+    },
     "behaviors": [
       {
         "code": "repulseagents"

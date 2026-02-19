@@ -1,0 +1,390 @@
+{
+  "code": "goblin",
+  "class": "EntityAgent",
+  "variantgroups": [
+    {
+      "code": "type",
+      "states": [
+        "diamond",
+        "emerald",
+        "iron",
+        "copper",
+        "tin",
+        "gold",
+        "quartz",
+        "silver",
+        "halite"
+      ]
+    }
+  ],
+  "hitboxSize": {
+    "x": 3,
+    "y": 6
+  },
+  "canClimb": true,
+  "eyeHeight": 5.8,
+  "drops": [],
+  "client": {
+    "renderer": "Shape",
+    "shapeByType": {
+      "golem-diamond": {
+        "base": "entity/golemdiamond"
+      },
+      "golem-emerald": {
+        "base": "entity/golememerald"
+      },
+      "golem-iron": {
+        "base": "entity/golemiron"
+      },
+      "golem-copper": {
+        "base": "entity/golemcopper"
+      },
+      "golem-tin": {
+        "base": "entity/golemtin"
+      },
+      "golem-gold": {
+        "base": "entity/golemgold"
+      },
+      "golem-quartz": {
+        "base": "entity/golemquartz"
+      },
+      "golem-silver": {
+        "base": "entity/golemsilver"
+      },
+      "golem-halite": {
+        "base": "entity/golemhalite"
+      }
+
+    },
+    "texturesByType": {
+      "golem-diamond": {"skin": {"base": "entity/golemdiamond"} },
+      "golem-emerald": {"skin": {"base": "entity/golememerald"} },
+      "golem-iron": { "skin": { "base": "entity/golemiron" } },
+      "golem-copper": { "skin": { "base": "entity/golemcopper" } },
+      "golem-tin": { "skin": { "base": "entity/golemtin" } },
+      "golem-gold": { "skin": { "base": "entity/golemgold" } },
+      "golem-quartz": { "skin": { "base": "entity/golemquartz" } },
+      "golem-silver": { "skin": { "base": "entity/golemsilver" } },
+      "golem-halite": {"skin": {"base": "entity/golemhalite"}}
+    },
+    "behaviors": [
+      {
+        "code": "repulseagents"
+      },
+      {
+        "code": "controlledphysics",
+        "stepHeight": 1
+      },
+      {
+        "code": "floatupwhenstuck",
+        "onlyWhenDead": true
+      },
+      {
+        "code": "interpolateposition"
+      },
+      {
+        "code": "harvestable",
+        "duration": 2
+      }
+    ],
+    "animaitons": [
+
+    ]
+  },
+  "server": {
+    "behaviors": [
+      {
+        "code": "repulseagents"
+      },
+      {
+        "code": "controlledphysics",
+        "stepHeight": 1
+      },
+      {
+        "code": "health",
+        "currenthealthByType": {
+          "golem-diamond": 127,
+          "golem-emerald": 123,
+          "golem-iron": 119,
+          "golem-copper": 78,
+          "golem-tin": 82,
+          "golem-gold": 63,
+          "golem-quartz": 58,
+          "golem-silver": 53,
+          "golem-halite": 35
+        },
+        "maxhealthByType": {
+          "golem-diamond": 127,
+          "golem-emerald": 123,
+          "golem-iron": 119,
+          "golem-copper": 78,
+          "golem-tin": 82,
+          "golem-gold": 63,
+          "golem-quartz": 58,
+          "golem-silver": 53,
+          "golem-halite": 35
+        }
+      },
+      {
+        "code": "deaddecay",
+        "hoursToDecay": 48,
+        "decayedBlock": "stone-*"
+      },
+      {
+        "code": "emotionstates",
+        "states": [
+          {
+            "code": "aggressiveondamage",
+            "duration": 30,
+            "chance": 1,
+            "slot": 0,
+            "priority": 2,
+            "accumType": "noaccu"
+          }
+        ]
+      },
+      {
+        "code": "taskai",
+        "aiCreatureType": "LandCreature",
+        "aitasks": [
+          {
+            "code": "meleeattack",
+            "animation": "attack",
+            "entityCodes": [ "player" ],
+            "priority": 3,
+            "damageByType": {
+              "golem-diamond": 16,
+              "golem-emerald": 15.2,
+              "golem-iron": 12,
+              "golem-copper": 11,
+              "golem-tin": 10.5,
+              "golem-gold": 8,
+              "golem-quartz": 7.75,
+              "golem-silver": 7.5,
+              "golem-halite": 4
+            },
+            "damageTierByType": {
+              "golem-diamond": 3,
+              "golem-emerald": 3,
+              "golem-iron": 2,
+              "golem-copper": 2,
+              "golem-tin": 2,
+              "golem-gold": 2,
+              "golem-quartz": 2,
+              "golem-silver": 2,
+              "golem-halite": 1
+            },
+            "damageType": "BluntAttack",
+            "slot": 1,
+            "mincooldown": 1500,
+            "maxcooldown": 2500,
+            "attackDurationMs": 1250,
+            "damagePlayerAtMs": 500,
+            "whenInEmotionState": "aggressiveondamage"
+          },
+          {
+            "code": "seekentity",
+            "entityCodes": [ "player" ],
+            "priority": 1.6,
+            "mincooldown": 600,
+            "maxcooldown": 650,
+            "movespeed": 0.05,
+            "seekingRange": 20,
+            "whenInEmotionState": "aggressiveondamage"
+          },
+          {
+            "code": "idle",
+            "animation": "Idle",
+            "priority": 0.9,
+            "minduration": 6000,
+            "maxduration": 45000,
+            "mincooldown": 6000,
+            "maxcooldown": 120000,
+            "priorityForCancel": 1.28,
+            "stopOnNearbyEntityCodes": [ "player"],
+            "stopRange": 10,
+            "stopOnHurt": true
+          }
+        ]
+      },
+      {
+        "code": "floatupwhenstuck",
+        "onlyWhenDead": true
+      },
+      {
+        "code": "harvestable",
+        "dropsByType": {
+          "golem-diamond": [
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            },
+            {
+              "type": "item",
+              "code": "gem-diamond-rough",
+              "quantity": {
+                "avg": 1,
+                "var": 0.5
+              }
+            }
+
+          ],
+          "golem-emerald": [
+            {
+              "type": "item",
+              "code": "gem-emerald-rough",
+              "quantity": {
+                "avg": 1,
+                "var": 0.5
+              }
+            },
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            }
+          ],
+          "golem-iron": [
+            {
+              "type": "item",
+              "code": "crystalizedore-bountiful-hematite-granite",
+              "quantity": {
+                "avg": 2,
+                "var": 1
+              }
+            },
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            }
+          ],
+          "golem-copper": [
+            {
+              "type": "item",
+              "code": "crystalizedore-bountiful-nativecopper-basalt",
+              "quantity": {
+                "avg": 2,
+                "var": 1
+              }
+            },
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            }
+          ],
+          "golem-tin": [
+            {
+              "type": "item",
+              "code": "crystalizedore-bountiful-cassiterite-granite",
+              "quantity": {
+                "avg": 2,
+                "var": 1
+              }
+            },
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            }
+          ],
+          "golem-gold": [
+            {
+              "type": "item",
+              "code": "crystalizedore-bountiful-quartz_nativegold-chalk",
+              "quantity": {
+                "avg": 2,
+                "var": 1
+              }
+            },
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            }
+          ],
+          "golem-quartz": [
+            {
+              "type": "item",
+              "code": "ore-quartz",
+              "quantity": {
+                "avg": 2,
+                "var": 1
+              }
+            },
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            }
+          ],
+          "golem-silver": [
+            {
+              "type": "item",
+              "code": "crystalizedore-bountiful-quartz_nativesilver-andesite",
+              "quantity": {
+                "avg": 2,
+                "var": 1
+              }
+            },
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            }
+          ],
+          "golem-halite": [
+            {
+              "type": "item",
+              "code": "stone-halite",
+              "quantity": {
+                "avg": 150,
+                "var": 32
+              }
+            },
+            {
+              "type": "item",
+              "code": "stone-limestone",
+              "quantity": {
+                "avg": 24,
+                "var": 5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "code": "ripharvestable"
+      },
+      {
+        "code": "entitystatetags"
+      }
+    ]
+  }
+}
